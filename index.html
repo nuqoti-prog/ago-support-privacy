@@ -1,48 +1,67 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chính sách quyền riêng tư - AGO Support</title>
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #222; }
-    h1, h2 { color: #0f172a; }
-    .meta { color: #555; margin-bottom: 24px; }
-    ul { padding-left: 22px; }
-    code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; }
-  </style>
-</head>
-<body>
-  <h1>Chính sách quyền riêng tư cho tiện ích AGO Support</h1>
-  <p class="meta">Cập nhật lần cuối: 2026-03-29</p>
+Chính sách quyền riêng tư cho tiện ích AGO Support
 
-  <p>AGO Support là tiện ích hỗ trợ hiển thị thông báo, toast và các thành phần giao diện phục vụ thao tác của người dùng trên website. Chúng tôi cam kết tôn trọng quyền riêng tư của người dùng.</p>
+Cập nhật lần cuối: 2026-05-31
 
-  <h2>1. Dữ liệu tiện ích có thể xử lý</h2>
-  <ul>
-    <li>Dữ liệu cấu hình cục bộ do người dùng thiết lập trong tiện ích.</li>
-    <li>Thông tin cần thiết để hiển thị thông báo hoặc thành phần giao diện trên trang web đang mở.</li>
-    <li>Trạng thái tab đang hoạt động khi cần phục vụ tính năng của tiện ích.</li>
-  </ul>
+AGO Support là tiện ích hỗ trợ người dùng thao tác nhanh trên hệ thống CMS, hiển thị thông báo, toast, popup, kiểm tra nội dung và hỗ trợ một số tác vụ biên tập. Chúng tôi cam kết tôn trọng quyền riêng tư của người dùng và chỉ xử lý dữ liệu ở mức cần thiết để tiện ích hoạt động đúng chức năng.
 
-  <h2>2. Mục đích sử dụng dữ liệu</h2>
-  <ul>
-    <li>Lưu cài đặt và tùy chọn của người dùng bằng <code>chrome.storage</code>.</li>
-    <li>Hiển thị thông báo bằng <code>chrome.notifications</code>.</li>
-    <li>Tương tác với tab hiện tại bằng <code>chrome.tabs</code> khi cần cho tính năng của tiện ích.</li>
-    <li>Hiển thị toast/popup giao diện trên các website mà tiện ích được cấu hình chạy.</li>
-  </ul>
+1. Dữ liệu tiện ích có thể xử lý
 
-  <h2>3. Chia sẻ dữ liệu</h2>
-  <p>Tiện ích không bán dữ liệu người dùng. Tiện ích không chia sẻ dữ liệu cá nhân của người dùng cho bên thứ ba, trừ khi pháp luật yêu cầu.</p>
+AGO Support có thể xử lý các nhóm dữ liệu sau:
 
-  <h2>4. Lưu trữ và bảo mật</h2>
-  <p>Dữ liệu cấu hình được lưu cục bộ trong trình duyệt thông qua cơ chế lưu trữ của Chrome Extension. Chúng tôi cố gắng giới hạn dữ liệu được xử lý ở mức tối thiểu cần thiết để tiện ích hoạt động.</p>
+Dữ liệu cấu hình cục bộ do người dùng thiết lập trong tiện ích.
+Thông tin cần thiết để hiển thị thông báo, toast, popup hoặc các thành phần giao diện trên trang web đang mở.
+Trạng thái tab đang hoạt động khi cần phục vụ tính năng của tiện ích.
+Nội dung tin/bài, tiêu đề, tác giả, hình ảnh, chú thích ảnh hoặc dữ liệu biểu mẫu CMS khi người dùng sử dụng các chức năng hỗ trợ biên tập.
+Trạng thái tin/bài trong CMS như Chờ biên tập, Kỹ thuật, Bước 1, Bước 2, Xuất bản.
+Thông tin cần thiết để gửi thông báo Telegram, bao gồm tiêu đề tin/bài, liên kết CMS hoặc liên kết bài viết, trạng thái xử lý, thời gian và tên người thao tác nếu hệ thống CMS có hiển thị.
+Nội dung văn bản cần kiểm tra chính tả khi người dùng chủ động sử dụng tính năng kiểm tra chính tả online.
 
-  <h2>5. Quyền của người dùng</h2>
-  <p>Người dùng có thể ngừng sử dụng tiện ích bất kỳ lúc nào bằng cách tắt hoặc gỡ cài đặt tiện ích khỏi trình duyệt.</p>
+Tiện ích không chủ động thu thập dữ liệu nhạy cảm không liên quan đến chức năng chính của AGO Support.
 
-  <h2>6. Liên hệ</h2>
-  <p>Nếu bạn có câu hỏi về chính sách này, vui lòng liên hệ qua email: <strong>nuqoti@gmail.com</strong>.</p>
-</body>
-</html>
+2. Mục đích sử dụng dữ liệu
+
+Dữ liệu được xử lý nhằm các mục đích sau:
+
+Lưu cài đặt và tùy chọn của người dùng bằng chrome.storage.
+Hiển thị thông báo bằng chrome.notifications.
+Tương tác với tab hiện tại bằng chrome.tabs khi cần cho tính năng của tiện ích.
+Hiển thị toast, popup hoặc giao diện hỗ trợ trên các website mà tiện ích được cấu hình chạy.
+Hỗ trợ người dùng thao tác nhanh trong CMS, bao gồm định dạng nội dung, xử lý ảnh, kiểm tra chính tả, lấy link, dán nội dung và theo dõi trạng thái tin/bài.
+Gửi thông báo trạng thái tin/bài qua Telegram khi người dùng hoặc đơn vị sử dụng đã cấu hình tính năng này.
+Gửi nội dung văn bản cần kiểm tra đến dịch vụ kiểm tra chính tả online thông qua máy chủ trung gian/proxy để nhận kết quả gợi ý lỗi chính tả.
+3. Dịch vụ bên ngoài
+
+Một số chức năng của AGO Support có thể cần kết nối đến dịch vụ bên ngoài:
+
+Cloudflare Worker/proxy: dùng để trung chuyển yêu cầu gửi thông báo Telegram hoặc kiểm tra chính tả, giúp bảo vệ token/API key và giới hạn dữ liệu gửi đi.
+Telegram Bot API: dùng để gửi thông báo trạng thái tin/bài đến nhóm hoặc topic Telegram đã được cấu hình.
+Dịch vụ kiểm tra chính tả online: dùng để phân tích đoạn văn bản khi người dùng bật tính năng kiểm tra chính tả.
+
+Các dữ liệu này chỉ được gửi khi cần thiết để thực hiện chức năng tương ứng. AGO Support không sử dụng dữ liệu này cho mục đích quảng cáo, theo dõi hành vi người dùng hoặc bán cho bên thứ ba.
+
+4. Chia sẻ dữ liệu
+
+Tiện ích không bán dữ liệu người dùng.
+
+Tiện ích không chia sẻ dữ liệu cá nhân của người dùng cho bên thứ ba, ngoại trừ các trường hợp sau:
+
+Khi cần gửi dữ liệu đến dịch vụ bên ngoài để thực hiện chức năng mà người dùng đã bật hoặc chủ động sử dụng, ví dụ gửi thông báo Telegram hoặc kiểm tra chính tả online.
+Khi pháp luật yêu cầu.
+5. Lưu trữ và bảo mật
+
+Dữ liệu cấu hình được lưu cục bộ trong trình duyệt thông qua cơ chế lưu trữ của Chrome Extension.
+
+AGO Support cố gắng giới hạn dữ liệu được xử lý ở mức tối thiểu cần thiết để tiện ích hoạt động. Các thông tin nhạy cảm như token hoặc API key nên được xử lý thông qua máy chủ trung gian/proxy thay vì lưu trực tiếp trong mã tiện ích.
+
+6. Quyền của người dùng
+
+Người dùng có thể:
+
+Tắt hoặc gỡ cài đặt tiện ích bất kỳ lúc nào khỏi trình duyệt.
+Xóa dữ liệu cục bộ của tiện ích bằng cách gỡ tiện ích hoặc xóa dữ liệu trình duyệt liên quan.
+Không sử dụng các chức năng online như kiểm tra chính tả hoặc Telegram nếu không muốn dữ liệu liên quan được gửi ra ngoài trình duyệt.
+7. Liên hệ
+
+Nếu bạn có câu hỏi về chính sách này, vui lòng liên hệ qua email:
+
+nuqoti@gmail.com
