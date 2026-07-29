@@ -1,103 +1,198 @@
-Chính sách quyền riêng tư — Tiện ích AGO Support
-Cập nhật lần cuối: 29/07/2026
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chính sách quyền riêng tư — Tiện ích AGO Support</title>
+<style>
+  body { max-width: 820px; margin: 0 auto; padding: 32px 20px 80px; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.65; color: #222; }
+  h1 { font-size: 1.6rem; margin-bottom: .3em; }
+  h2 { font-size: 1.15rem; margin-top: 2em; border-bottom: 1px solid #e5e5e5; padding-bottom: .3em; }
+  h3 { font-size: 1rem; margin-top: 1.4em; }
+  .meta { color: #666; font-size: .9rem; margin-bottom: 2em; }
+  .lang-sep { margin: 4em 0 0; border: 0; border-top: 3px double #ccc; }
+  ul { padding-left: 1.3em; }
+  li { margin-bottom: .4em; }
+  code { background: #f4f4f4; padding: 1px 5px; border-radius: 3px; font-size: .9em; }
+  .note { background: #f7f9fb; border-left: 3px solid #4a90d9; padding: 12px 16px; margin: 1.2em 0; }
+  a { color: #1a67b3; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #14161a; color: #dfe3e8; }
+    h2 { border-bottom-color: #2c3138; }
+    code { background: #232830; }
+    .note { background: #1b2028; border-left-color: #4a90d9; }
+    .lang-sep { border-top-color: #363b44; }
+    a { color: #79b8ff; }
+  }
+</style>
+</head>
+<body>
 
-AGO Support là tiện ích nội bộ của Báo An Giang, hỗ trợ biên tập viên và phóng viên thao tác trên hệ thống CMS của toà soạn: đếm ký tự, kiểm tra chính tả, lấy tin từ báo nguồn đã thiết lập và theo dõi trạng thái bài viết.
+<h1>Chính sách quyền riêng tư — Tiện ích AGO Support</h1>
+<p class="meta">Cập nhật lần cuối: 29/07/2026</p>
 
-Tiện ích chỉ xử lý dữ liệu ở mức cần thiết để hoạt động đúng chức năng, và chỉ gửi dữ liệu về máy chủ riêng của toà soạn.
+<p>AGO Support là tiện ích nội bộ của Báo An Giang, hỗ trợ biên tập viên và phóng viên thao tác trên hệ thống CMS của toà soạn: đếm ký tự, kiểm tra chính tả, lấy tin từ báo nguồn đã thiết lập và theo dõi trạng thái bài viết.</p>
 
-1. Dữ liệu tiện ích xử lý
-a) Thông tin nhận dạng cá nhân
-Tên tài khoản đang đăng nhập trên hệ thống CMS.
-b) Thông tin vị trí
-Địa chỉ IP của máy truy cập, do máy chủ đọc từ yêu cầu gửi lên. Chỉ dùng để phân biệt máy trong hay ngoài mạng của toà soạn. Không thu thập toạ độ GPS hay vị trí chính xác.
-c) Hoạt động của người dùng
-Thao tác chuyển trạng thái tin/bài trong CMS: Chờ biên tập, Kỹ thuật, Bước 1, Bước 2, Xuất bản.
-Đường dẫn của trang CMS mà tiện ích đang chạy, ví dụ /news/index.
-Mã định danh máy do tiện ích tự sinh ngẫu nhiên và lưu cục bộ.
-Phiên bản tiện ích đang cài.
-d) Nội dung trang web
-Tiêu đề, sapo, nội dung, hình ảnh, chú thích ảnh và liên kết của bài viết khi người dùng chủ động bấm nút lấy tin trên trang báo nguồn.
-Đoạn văn bản cần kiểm tra khi người dùng chủ động dùng chức năng kiểm tra chính tả.
-Tiêu đề tin/bài và liên kết CMS khi gửi thông báo trạng thái qua Telegram.
-e) Dữ liệu lưu cục bộ
-Tuỳ chọn bật/tắt tính năng do người dùng thiết lập, lưu trong trình duyệt bằng chrome.storage, không gửi đi đâu.
-Tiện ích không thu thập mật khẩu, thông tin đăng nhập, dữ liệu thanh toán, thông tin sức khoẻ, nội dung liên lạc cá nhân, và không thu thập lịch sử duyệt web của người dùng.
-2. Mục đích sử dụng
-Quản trị nội bộ: tên tài khoản, IP, mã máy và phiên bản được dùng để quản trị viên của toà soạn biết máy nào đang chạy tiện ích và đang ở phiên bản nào, phục vụ hỗ trợ kỹ thuật và nhắc cập nhật.
-Điều phối toà soạn: thao tác đổi trạng thái được ghi nhận để thông báo cho bộ phận liên quan qua Telegram.
-Hỗ trợ biên tập: nội dung bài viết được chuyển về máy chủ để chuẩn hoá đúng định dạng CMS; văn bản được gửi tới dịch vụ kiểm tra chính tả để nhận gợi ý lỗi.
-3. Nơi lưu trữ và thời gian lưu
-Dữ liệu được lưu trên máy chủ riêng của Báo An Giang, vận hành trên nền Cloudflare Workers.
-Nhật ký sử dụng (tên tài khoản, IP, mã máy, phiên bản, đường dẫn trang) được xoá tự động sau 7 ngày.
-Dữ liệu cấu hình của người dùng nằm trong trình duyệt của chính họ, tiện ích không gửi đi.
-4. Ai truy cập được
-Chỉ quản trị viên hệ thống của Báo An Giang. Nhật ký được truy vấn qua một kênh quản trị riêng, yêu cầu xác thực.
+<p>Tiện ích chỉ xử lý dữ liệu ở mức cần thiết để hoạt động đúng chức năng, và chỉ gửi dữ liệu về máy chủ riêng của toà soạn.</p>
 
-5. Dịch vụ bên ngoài
-Cloudflare Workers: máy chủ trung gian của toà soạn, trung chuyển yêu cầu và giữ token/API key thay vì để lộ trong mã tiện ích.
-Telegram Bot API: gửi thông báo trạng thái tin/bài tới nhóm hoặc topic đã cấu hình.
-Dịch vụ kiểm tra chính tả: phân tích đoạn văn bản khi người dùng bật tính năng này.
-Dữ liệu chỉ được gửi khi cần thực hiện đúng chức năng tương ứng.
+<h2>1. Dữ liệu tiện ích xử lý</h2>
 
-6. Chia sẻ dữ liệu
-Tiện ích không bán dữ liệu người dùng, không dùng cho quảng cáo, không theo dõi hành vi người dùng ngoài phạm vi công việc trên CMS, và không chuyển dữ liệu cho bên thứ ba — trừ khi cần gửi tới dịch vụ nêu ở mục 5 để thực hiện chức năng người dùng đã chủ động sử dụng, hoặc khi pháp luật yêu cầu.
+<h3>a) Thông tin nhận dạng cá nhân</h3>
+<ul>
+  <li>Tên tài khoản đang đăng nhập trên hệ thống CMS.</li>
+</ul>
 
-7. Quyền của người dùng
-Tắt hoặc gỡ tiện ích khỏi trình duyệt bất kỳ lúc nào.
-Xoá dữ liệu cục bộ bằng cách gỡ tiện ích hoặc xoá dữ liệu trình duyệt liên quan.
-Không sử dụng các chức năng cần kết nối ra ngoài như kiểm tra chính tả hoặc lấy tin, nếu không muốn dữ liệu tương ứng rời khỏi trình duyệt.
-Liên hệ quản trị viên để yêu cầu xoá nhật ký sử dụng liên quan tới tài khoản của mình.
-8. Liên hệ
-Email: nuqoti@gmail.com
+<h3>b) Thông tin vị trí</h3>
+<ul>
+  <li>Địa chỉ IP của máy truy cập, do máy chủ đọc từ yêu cầu gửi lên. Chỉ dùng để phân biệt máy trong hay ngoài mạng của toà soạn. Không thu thập toạ độ GPS hay vị trí chính xác.</li>
+</ul>
 
-Privacy Policy — AGO Support Extension
-Last updated: 29 July 2026
+<h3>c) Hoạt động của người dùng</h3>
+<ul>
+  <li>Thao tác chuyển trạng thái tin/bài trong CMS: Chờ biên tập, Kỹ thuật, Bước 1, Bước 2, Xuất bản.</li>
+  <li>Đường dẫn của trang CMS mà tiện ích đang chạy, ví dụ <code>/news/index</code>.</li>
+  <li>Mã định danh máy do tiện ích tự sinh ngẫu nhiên và lưu cục bộ.</li>
+  <li>Phiên bản tiện ích đang cài.</li>
+</ul>
 
-AGO Support is an internal tool of An Giang Newspaper (Báo An Giang, Vietnam). It helps editors and reporters work inside the newsroom's own CMS: counting characters against editorial limits, checking Vietnamese spelling, importing articles from a configured list of partner news sites, and tracking article status.
+<h3>d) Nội dung trang web</h3>
+<ul>
+  <li>Tiêu đề, sapo, nội dung, hình ảnh, chú thích ảnh và liên kết của bài viết khi người dùng chủ động bấm nút lấy tin trên trang báo nguồn.</li>
+  <li>Đoạn văn bản cần kiểm tra khi người dùng chủ động dùng chức năng kiểm tra chính tả.</li>
+  <li>Tiêu đề tin/bài và liên kết CMS khi gửi thông báo trạng thái qua Telegram.</li>
+</ul>
 
-The extension processes only the data needed for these functions, and sends data only to servers operated by the newsroom.
+<h3>e) Dữ liệu lưu cục bộ</h3>
+<ul>
+  <li>Tuỳ chọn bật/tắt tính năng do người dùng thiết lập, lưu trong trình duyệt bằng <code>chrome.storage</code>, không gửi đi đâu.</li>
+</ul>
 
-1. Data the extension handles
-a) Personally identifiable information
-The username currently signed in to the CMS.
-b) Location
-The workstation's IP address, read by our server from the incoming request. Used only to tell whether a machine is inside or outside the newsroom network. No GPS or precise location data is collected.
-c) User activity
-Article status changes performed in the CMS.
-The path of the CMS page the extension is running on, e.g. /news/index.
-A randomly generated machine identifier stored locally by the extension.
-The installed extension version.
-d) Website content
-Title, lead paragraph, body text, images, captions and links of an article, when the user actively clicks the import button on a partner news site.
-Text submitted by the user to the spellchecking feature.
-Article titles and CMS links included in Telegram status notifications.
-e) Locally stored data
-The user's feature preferences, kept in the browser via chrome.storage and never transmitted.
-The extension does not collect passwords, login credentials, payment data, health data or personal communications, and does not collect the user's web browsing history.
-2. Purpose
-Internal administration: username, IP, machine identifier and version let the newsroom's system administrator see which workstations run the extension and which version they have, for technical support and update reminders.
-Newsroom coordination: status changes are recorded so the relevant editorial desk is notified via Telegram.
-Editorial support: article content is sent to our server to be normalised into the CMS format; text is sent to a spellchecking service to receive suggestions.
-3. Storage and retention
-Data is stored on An Giang Newspaper's own servers, running on Cloudflare Workers.
-Usage logs (username, IP, machine identifier, version, page path) are deleted automatically after 7 days.
-User preferences remain in the user's own browser and are not transmitted.
-4. Who can access the data
-Only the system administrator of An Giang Newspaper. Logs are queried through a separate administrative channel that requires authentication.
+<div class="note">
+Tiện ích <strong>không</strong> thu thập mật khẩu, thông tin đăng nhập, dữ liệu thanh toán, thông tin sức khoẻ, nội dung liên lạc cá nhân, và <strong>không</strong> thu thập lịch sử duyệt web của người dùng.
+</div>
 
-5. Third-party services
-Cloudflare Workers: the newsroom's own intermediate server, which relays requests and holds tokens/API keys instead of embedding them in the extension.
-Telegram Bot API: delivers article status notifications to the configured group or topic.
-Spellchecking service: analyses text when the user enables that feature.
-Data is transmitted only as needed to perform the corresponding function.
+<h2>2. Mục đích sử dụng</h2>
+<ul>
+  <li><strong>Quản trị nội bộ:</strong> tên tài khoản, IP, mã máy và phiên bản được dùng để quản trị viên của toà soạn biết máy nào đang chạy tiện ích và đang ở phiên bản nào, phục vụ hỗ trợ kỹ thuật và nhắc cập nhật.</li>
+  <li><strong>Điều phối toà soạn:</strong> thao tác đổi trạng thái được ghi nhận để thông báo cho bộ phận liên quan qua Telegram.</li>
+  <li><strong>Hỗ trợ biên tập:</strong> nội dung bài viết được chuyển về máy chủ để chuẩn hoá đúng định dạng CMS; văn bản được gửi tới dịch vụ kiểm tra chính tả để nhận gợi ý lỗi.</li>
+</ul>
 
-6. Data sharing
-The extension does not sell user data, does not use it for advertising, does not track user behaviour beyond newsroom work in the CMS, and does not transfer data to third parties — except when sending it to the services listed in section 5 to perform a function the user actively invoked, or where required by law.
+<h2>3. Nơi lưu trữ và thời gian lưu</h2>
+<ul>
+  <li>Dữ liệu được lưu trên máy chủ riêng của Báo An Giang, vận hành trên nền Cloudflare Workers.</li>
+  <li><strong>Nhật ký sử dụng</strong> (tên tài khoản, IP, mã máy, phiên bản, đường dẫn trang) được xoá tự động sau <strong>7 ngày</strong>.</li>
+  <li>Dữ liệu cấu hình của người dùng nằm trong trình duyệt của chính họ, tiện ích không gửi đi.</li>
+</ul>
 
-7. User rights
-Disable or uninstall the extension at any time.
-Delete local data by removing the extension or clearing related browser data.
-Decline to use features that require an outbound connection, such as spellchecking or article import.
-Contact the administrator to request deletion of usage logs relating to their account.
-8. Contact
-Email: nuqoti@gmail.com
+<h2>4. Ai truy cập được</h2>
+<p>Chỉ quản trị viên hệ thống của Báo An Giang. Nhật ký được truy vấn qua một kênh quản trị riêng, yêu cầu xác thực.</p>
+
+<h2>5. Dịch vụ bên ngoài</h2>
+<ul>
+  <li><strong>Cloudflare Workers:</strong> máy chủ trung gian của toà soạn, trung chuyển yêu cầu và giữ token/API key thay vì để lộ trong mã tiện ích.</li>
+  <li><strong>Telegram Bot API:</strong> gửi thông báo trạng thái tin/bài tới nhóm hoặc topic đã cấu hình.</li>
+  <li><strong>Dịch vụ kiểm tra chính tả:</strong> phân tích đoạn văn bản khi người dùng bật tính năng này.</li>
+</ul>
+<p>Dữ liệu chỉ được gửi khi cần thực hiện đúng chức năng tương ứng.</p>
+
+<h2>6. Chia sẻ dữ liệu</h2>
+<p>Tiện ích <strong>không bán</strong> dữ liệu người dùng, <strong>không</strong> dùng cho quảng cáo, <strong>không</strong> theo dõi hành vi người dùng ngoài phạm vi công việc trên CMS, và <strong>không</strong> chuyển dữ liệu cho bên thứ ba — trừ khi cần gửi tới dịch vụ nêu ở mục 5 để thực hiện chức năng người dùng đã chủ động sử dụng, hoặc khi pháp luật yêu cầu.</p>
+
+<h2>7. Quyền của người dùng</h2>
+<ul>
+  <li>Tắt hoặc gỡ tiện ích khỏi trình duyệt bất kỳ lúc nào.</li>
+  <li>Xoá dữ liệu cục bộ bằng cách gỡ tiện ích hoặc xoá dữ liệu trình duyệt liên quan.</li>
+  <li>Không sử dụng các chức năng cần kết nối ra ngoài như kiểm tra chính tả hoặc lấy tin, nếu không muốn dữ liệu tương ứng rời khỏi trình duyệt.</li>
+  <li>Liên hệ quản trị viên để yêu cầu xoá nhật ký sử dụng liên quan tới tài khoản của mình.</li>
+</ul>
+
+<h2>8. Liên hệ</h2>
+<p>Email: <a href="mailto:nuqoti@gmail.com">nuqoti@gmail.com</a></p>
+
+<hr class="lang-sep">
+
+<h1>Privacy Policy — AGO Support Extension</h1>
+<p class="meta">Last updated: 29 July 2026</p>
+
+<p>AGO Support is an internal tool of An Giang Newspaper (Báo An Giang, Vietnam). It helps editors and reporters work inside the newsroom's own CMS: counting characters against editorial limits, checking Vietnamese spelling, importing articles from a configured list of partner news sites, and tracking article status.</p>
+
+<p>The extension processes only the data needed for these functions, and sends data only to servers operated by the newsroom.</p>
+
+<h2>1. Data the extension handles</h2>
+
+<h3>a) Personally identifiable information</h3>
+<ul>
+  <li>The username currently signed in to the CMS.</li>
+</ul>
+
+<h3>b) Location</h3>
+<ul>
+  <li>The workstation's IP address, read by our server from the incoming request. Used only to tell whether a machine is inside or outside the newsroom network. No GPS or precise location data is collected.</li>
+</ul>
+
+<h3>c) User activity</h3>
+<ul>
+  <li>Article status changes performed in the CMS.</li>
+  <li>The path of the CMS page the extension is running on, e.g. <code>/news/index</code>.</li>
+  <li>A randomly generated machine identifier stored locally by the extension.</li>
+  <li>The installed extension version.</li>
+</ul>
+
+<h3>d) Website content</h3>
+<ul>
+  <li>Title, lead paragraph, body text, images, captions and links of an article, when the user actively clicks the import button on a partner news site.</li>
+  <li>Text submitted by the user to the spellchecking feature.</li>
+  <li>Article titles and CMS links included in Telegram status notifications.</li>
+</ul>
+
+<h3>e) Locally stored data</h3>
+<ul>
+  <li>The user's feature preferences, kept in the browser via <code>chrome.storage</code> and never transmitted.</li>
+</ul>
+
+<div class="note">
+The extension does <strong>not</strong> collect passwords, login credentials, payment data, health data or personal communications, and does <strong>not</strong> collect the user's web browsing history.
+</div>
+
+<h2>2. Purpose</h2>
+<ul>
+  <li><strong>Internal administration:</strong> username, IP, machine identifier and version let the newsroom's system administrator see which workstations run the extension and which version they have, for technical support and update reminders.</li>
+  <li><strong>Newsroom coordination:</strong> status changes are recorded so the relevant editorial desk is notified via Telegram.</li>
+  <li><strong>Editorial support:</strong> article content is sent to our server to be normalised into the CMS format; text is sent to a spellchecking service to receive suggestions.</li>
+</ul>
+
+<h2>3. Storage and retention</h2>
+<ul>
+  <li>Data is stored on An Giang Newspaper's own servers, running on Cloudflare Workers.</li>
+  <li><strong>Usage logs</strong> (username, IP, machine identifier, version, page path) are deleted automatically after <strong>7 days</strong>.</li>
+  <li>User preferences remain in the user's own browser and are not transmitted.</li>
+</ul>
+
+<h2>4. Who can access the data</h2>
+<p>Only the system administrator of An Giang Newspaper. Logs are queried through a separate administrative channel that requires authentication.</p>
+
+<h2>5. Third-party services</h2>
+<ul>
+  <li><strong>Cloudflare Workers:</strong> the newsroom's own intermediate server, which relays requests and holds tokens/API keys instead of embedding them in the extension.</li>
+  <li><strong>Telegram Bot API:</strong> delivers article status notifications to the configured group or topic.</li>
+  <li><strong>Spellchecking service:</strong> analyses text when the user enables that feature.</li>
+</ul>
+<p>Data is transmitted only as needed to perform the corresponding function.</p>
+
+<h2>6. Data sharing</h2>
+<p>The extension does <strong>not</strong> sell user data, does <strong>not</strong> use it for advertising, does <strong>not</strong> track user behaviour beyond newsroom work in the CMS, and does <strong>not</strong> transfer data to third parties — except when sending it to the services listed in section 5 to perform a function the user actively invoked, or where required by law.</p>
+
+<h2>7. User rights</h2>
+<ul>
+  <li>Disable or uninstall the extension at any time.</li>
+  <li>Delete local data by removing the extension or clearing related browser data.</li>
+  <li>Decline to use features that require an outbound connection, such as spellchecking or article import.</li>
+  <li>Contact the administrator to request deletion of usage logs relating to their account.</li>
+</ul>
+
+<h2>8. Contact</h2>
+<p>Email: <a href="mailto:nuqoti@gmail.com">nuqoti@gmail.com</a></p>
+
+</body>
+</html>
