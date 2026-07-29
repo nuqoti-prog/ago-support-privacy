@@ -1,67 +1,103 @@
-Chính sách quyền riêng tư cho tiện ích AGO Support
+Chính sách quyền riêng tư — Tiện ích AGO Support
+Cập nhật lần cuối: 29/07/2026
 
-Cập nhật lần cuối: 2026-05-31
+AGO Support là tiện ích nội bộ của Báo An Giang, hỗ trợ biên tập viên và phóng viên thao tác trên hệ thống CMS của toà soạn: đếm ký tự, kiểm tra chính tả, lấy tin từ báo nguồn đã thiết lập và theo dõi trạng thái bài viết.
 
-AGO Support là tiện ích hỗ trợ người dùng thao tác nhanh trên hệ thống CMS, hiển thị thông báo, toast, popup, kiểm tra nội dung và hỗ trợ một số tác vụ biên tập. Chúng tôi cam kết tôn trọng quyền riêng tư của người dùng và chỉ xử lý dữ liệu ở mức cần thiết để tiện ích hoạt động đúng chức năng.
+Tiện ích chỉ xử lý dữ liệu ở mức cần thiết để hoạt động đúng chức năng, và chỉ gửi dữ liệu về máy chủ riêng của toà soạn.
 
-1. Dữ liệu tiện ích có thể xử lý
+1. Dữ liệu tiện ích xử lý
+a) Thông tin nhận dạng cá nhân
+Tên tài khoản đang đăng nhập trên hệ thống CMS.
+b) Thông tin vị trí
+Địa chỉ IP của máy truy cập, do máy chủ đọc từ yêu cầu gửi lên. Chỉ dùng để phân biệt máy trong hay ngoài mạng của toà soạn. Không thu thập toạ độ GPS hay vị trí chính xác.
+c) Hoạt động của người dùng
+Thao tác chuyển trạng thái tin/bài trong CMS: Chờ biên tập, Kỹ thuật, Bước 1, Bước 2, Xuất bản.
+Đường dẫn của trang CMS mà tiện ích đang chạy, ví dụ /news/index.
+Mã định danh máy do tiện ích tự sinh ngẫu nhiên và lưu cục bộ.
+Phiên bản tiện ích đang cài.
+d) Nội dung trang web
+Tiêu đề, sapo, nội dung, hình ảnh, chú thích ảnh và liên kết của bài viết khi người dùng chủ động bấm nút lấy tin trên trang báo nguồn.
+Đoạn văn bản cần kiểm tra khi người dùng chủ động dùng chức năng kiểm tra chính tả.
+Tiêu đề tin/bài và liên kết CMS khi gửi thông báo trạng thái qua Telegram.
+e) Dữ liệu lưu cục bộ
+Tuỳ chọn bật/tắt tính năng do người dùng thiết lập, lưu trong trình duyệt bằng chrome.storage, không gửi đi đâu.
+Tiện ích không thu thập mật khẩu, thông tin đăng nhập, dữ liệu thanh toán, thông tin sức khoẻ, nội dung liên lạc cá nhân, và không thu thập lịch sử duyệt web của người dùng.
+2. Mục đích sử dụng
+Quản trị nội bộ: tên tài khoản, IP, mã máy và phiên bản được dùng để quản trị viên của toà soạn biết máy nào đang chạy tiện ích và đang ở phiên bản nào, phục vụ hỗ trợ kỹ thuật và nhắc cập nhật.
+Điều phối toà soạn: thao tác đổi trạng thái được ghi nhận để thông báo cho bộ phận liên quan qua Telegram.
+Hỗ trợ biên tập: nội dung bài viết được chuyển về máy chủ để chuẩn hoá đúng định dạng CMS; văn bản được gửi tới dịch vụ kiểm tra chính tả để nhận gợi ý lỗi.
+3. Nơi lưu trữ và thời gian lưu
+Dữ liệu được lưu trên máy chủ riêng của Báo An Giang, vận hành trên nền Cloudflare Workers.
+Nhật ký sử dụng (tên tài khoản, IP, mã máy, phiên bản, đường dẫn trang) được xoá tự động sau 7 ngày.
+Dữ liệu cấu hình của người dùng nằm trong trình duyệt của chính họ, tiện ích không gửi đi.
+4. Ai truy cập được
+Chỉ quản trị viên hệ thống của Báo An Giang. Nhật ký được truy vấn qua một kênh quản trị riêng, yêu cầu xác thực.
 
-AGO Support có thể xử lý các nhóm dữ liệu sau:
+5. Dịch vụ bên ngoài
+Cloudflare Workers: máy chủ trung gian của toà soạn, trung chuyển yêu cầu và giữ token/API key thay vì để lộ trong mã tiện ích.
+Telegram Bot API: gửi thông báo trạng thái tin/bài tới nhóm hoặc topic đã cấu hình.
+Dịch vụ kiểm tra chính tả: phân tích đoạn văn bản khi người dùng bật tính năng này.
+Dữ liệu chỉ được gửi khi cần thực hiện đúng chức năng tương ứng.
 
-Dữ liệu cấu hình cục bộ do người dùng thiết lập trong tiện ích.
-Thông tin cần thiết để hiển thị thông báo, toast, popup hoặc các thành phần giao diện trên trang web đang mở.
-Trạng thái tab đang hoạt động khi cần phục vụ tính năng của tiện ích.
-Nội dung tin/bài, tiêu đề, tác giả, hình ảnh, chú thích ảnh hoặc dữ liệu biểu mẫu CMS khi người dùng sử dụng các chức năng hỗ trợ biên tập.
-Trạng thái tin/bài trong CMS như Chờ biên tập, Kỹ thuật, Bước 1, Bước 2, Xuất bản.
-Thông tin cần thiết để gửi thông báo Telegram, bao gồm tiêu đề tin/bài, liên kết CMS hoặc liên kết bài viết, trạng thái xử lý, thời gian và tên người thao tác nếu hệ thống CMS có hiển thị.
-Nội dung văn bản cần kiểm tra chính tả khi người dùng chủ động sử dụng tính năng kiểm tra chính tả online.
+6. Chia sẻ dữ liệu
+Tiện ích không bán dữ liệu người dùng, không dùng cho quảng cáo, không theo dõi hành vi người dùng ngoài phạm vi công việc trên CMS, và không chuyển dữ liệu cho bên thứ ba — trừ khi cần gửi tới dịch vụ nêu ở mục 5 để thực hiện chức năng người dùng đã chủ động sử dụng, hoặc khi pháp luật yêu cầu.
 
-Tiện ích không chủ động thu thập dữ liệu nhạy cảm không liên quan đến chức năng chính của AGO Support.
+7. Quyền của người dùng
+Tắt hoặc gỡ tiện ích khỏi trình duyệt bất kỳ lúc nào.
+Xoá dữ liệu cục bộ bằng cách gỡ tiện ích hoặc xoá dữ liệu trình duyệt liên quan.
+Không sử dụng các chức năng cần kết nối ra ngoài như kiểm tra chính tả hoặc lấy tin, nếu không muốn dữ liệu tương ứng rời khỏi trình duyệt.
+Liên hệ quản trị viên để yêu cầu xoá nhật ký sử dụng liên quan tới tài khoản của mình.
+8. Liên hệ
+Email: nuqoti@gmail.com
 
-2. Mục đích sử dụng dữ liệu
+Privacy Policy — AGO Support Extension
+Last updated: 29 July 2026
 
-Dữ liệu được xử lý nhằm các mục đích sau:
+AGO Support is an internal tool of An Giang Newspaper (Báo An Giang, Vietnam). It helps editors and reporters work inside the newsroom's own CMS: counting characters against editorial limits, checking Vietnamese spelling, importing articles from a configured list of partner news sites, and tracking article status.
 
-Lưu cài đặt và tùy chọn của người dùng bằng chrome.storage.
-Hiển thị thông báo bằng chrome.notifications.
-Tương tác với tab hiện tại bằng chrome.tabs khi cần cho tính năng của tiện ích.
-Hiển thị toast, popup hoặc giao diện hỗ trợ trên các website mà tiện ích được cấu hình chạy.
-Hỗ trợ người dùng thao tác nhanh trong CMS, bao gồm định dạng nội dung, xử lý ảnh, kiểm tra chính tả, lấy link, dán nội dung và theo dõi trạng thái tin/bài.
-Gửi thông báo trạng thái tin/bài qua Telegram khi người dùng hoặc đơn vị sử dụng đã cấu hình tính năng này.
-Gửi nội dung văn bản cần kiểm tra đến dịch vụ kiểm tra chính tả online thông qua máy chủ trung gian/proxy để nhận kết quả gợi ý lỗi chính tả.
-3. Dịch vụ bên ngoài
+The extension processes only the data needed for these functions, and sends data only to servers operated by the newsroom.
 
-Một số chức năng của AGO Support có thể cần kết nối đến dịch vụ bên ngoài:
+1. Data the extension handles
+a) Personally identifiable information
+The username currently signed in to the CMS.
+b) Location
+The workstation's IP address, read by our server from the incoming request. Used only to tell whether a machine is inside or outside the newsroom network. No GPS or precise location data is collected.
+c) User activity
+Article status changes performed in the CMS.
+The path of the CMS page the extension is running on, e.g. /news/index.
+A randomly generated machine identifier stored locally by the extension.
+The installed extension version.
+d) Website content
+Title, lead paragraph, body text, images, captions and links of an article, when the user actively clicks the import button on a partner news site.
+Text submitted by the user to the spellchecking feature.
+Article titles and CMS links included in Telegram status notifications.
+e) Locally stored data
+The user's feature preferences, kept in the browser via chrome.storage and never transmitted.
+The extension does not collect passwords, login credentials, payment data, health data or personal communications, and does not collect the user's web browsing history.
+2. Purpose
+Internal administration: username, IP, machine identifier and version let the newsroom's system administrator see which workstations run the extension and which version they have, for technical support and update reminders.
+Newsroom coordination: status changes are recorded so the relevant editorial desk is notified via Telegram.
+Editorial support: article content is sent to our server to be normalised into the CMS format; text is sent to a spellchecking service to receive suggestions.
+3. Storage and retention
+Data is stored on An Giang Newspaper's own servers, running on Cloudflare Workers.
+Usage logs (username, IP, machine identifier, version, page path) are deleted automatically after 7 days.
+User preferences remain in the user's own browser and are not transmitted.
+4. Who can access the data
+Only the system administrator of An Giang Newspaper. Logs are queried through a separate administrative channel that requires authentication.
 
-Cloudflare Worker/proxy: dùng để trung chuyển yêu cầu gửi thông báo Telegram hoặc kiểm tra chính tả, giúp bảo vệ token/API key và giới hạn dữ liệu gửi đi.
-Telegram Bot API: dùng để gửi thông báo trạng thái tin/bài đến nhóm hoặc topic Telegram đã được cấu hình.
-Dịch vụ kiểm tra chính tả online: dùng để phân tích đoạn văn bản khi người dùng bật tính năng kiểm tra chính tả.
+5. Third-party services
+Cloudflare Workers: the newsroom's own intermediate server, which relays requests and holds tokens/API keys instead of embedding them in the extension.
+Telegram Bot API: delivers article status notifications to the configured group or topic.
+Spellchecking service: analyses text when the user enables that feature.
+Data is transmitted only as needed to perform the corresponding function.
 
-Các dữ liệu này chỉ được gửi khi cần thiết để thực hiện chức năng tương ứng. AGO Support không sử dụng dữ liệu này cho mục đích quảng cáo, theo dõi hành vi người dùng hoặc bán cho bên thứ ba.
+6. Data sharing
+The extension does not sell user data, does not use it for advertising, does not track user behaviour beyond newsroom work in the CMS, and does not transfer data to third parties — except when sending it to the services listed in section 5 to perform a function the user actively invoked, or where required by law.
 
-4. Chia sẻ dữ liệu
-
-Tiện ích không bán dữ liệu người dùng.
-
-Tiện ích không chia sẻ dữ liệu cá nhân của người dùng cho bên thứ ba, ngoại trừ các trường hợp sau:
-
-Khi cần gửi dữ liệu đến dịch vụ bên ngoài để thực hiện chức năng mà người dùng đã bật hoặc chủ động sử dụng, ví dụ gửi thông báo Telegram hoặc kiểm tra chính tả online.
-Khi pháp luật yêu cầu.
-5. Lưu trữ và bảo mật
-
-Dữ liệu cấu hình được lưu cục bộ trong trình duyệt thông qua cơ chế lưu trữ của Chrome Extension.
-
-AGO Support cố gắng giới hạn dữ liệu được xử lý ở mức tối thiểu cần thiết để tiện ích hoạt động. Các thông tin nhạy cảm như token hoặc API key nên được xử lý thông qua máy chủ trung gian/proxy thay vì lưu trực tiếp trong mã tiện ích.
-
-6. Quyền của người dùng
-
-Người dùng có thể:
-
-Tắt hoặc gỡ cài đặt tiện ích bất kỳ lúc nào khỏi trình duyệt.
-Xóa dữ liệu cục bộ của tiện ích bằng cách gỡ tiện ích hoặc xóa dữ liệu trình duyệt liên quan.
-Không sử dụng các chức năng online như kiểm tra chính tả hoặc Telegram nếu không muốn dữ liệu liên quan được gửi ra ngoài trình duyệt.
-7. Liên hệ
-
-Nếu bạn có câu hỏi về chính sách này, vui lòng liên hệ qua email:
-
-nuqoti@gmail.com
+7. User rights
+Disable or uninstall the extension at any time.
+Delete local data by removing the extension or clearing related browser data.
+Decline to use features that require an outbound connection, such as spellchecking or article import.
+Contact the administrator to request deletion of usage logs relating to their account.
+8. Contact
+Email: nuqoti@gmail.com
